@@ -38,20 +38,31 @@
 
     --radius: 0.5rem;
 
+    /* Product specific tokens */
+    --product-price: 0 84.2% 50%;
+    --product-price-foreground: 0 0% 100%;
+    
+    --product-sale: 142 76% 36%;
+    --product-sale-foreground: 0 0% 100%;
+    
+    --product-stock-low: 25 95% 53%;
+    --product-stock-out: 0 84.2% 60.2%;
+    
+    --product-variant-border: 214.3 31.8% 85%;
+    --product-variant-selected: 222.2 47.4% 11.2%;
+
+    /* Animation and interaction tokens */
+    --transition-quick: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -119,5 +130,50 @@
   
   .btn-cloud {
     @apply bg-gradient-to-r from-sky-blue to-pastel-pink hover:from-pastel-pink hover:to-sky-blue transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+
+  /* Product components */
+  .product-image-zoom {
+    @apply cursor-zoom-in transition-transform duration-300 hover:scale-105;
+  }
+
+  .product-variant-swatch {
+    @apply w-12 h-12 rounded-full border-2 border-transparent transition-all duration-200 hover:scale-110 cursor-pointer;
+  }
+
+  .product-variant-selected {
+    @apply border-[hsl(var(--product-variant-selected))] ring-2 ring-[hsl(var(--product-variant-selected))]/20 scale-110;
+  }
+
+  .product-price-current {
+    @apply text-[hsl(var(--product-price))] font-bold;
+  }
+
+  .product-price-compare {
+    @apply text-muted-foreground line-through;
+  }
+
+  .product-badge-sale {
+    @apply bg-[hsl(var(--product-sale))] text-[hsl(var(--product-sale-foreground))] px-2 py-1 rounded-md text-xs font-semibold;
+  }
+
+  .product-stock-indicator {
+    @apply text-sm font-medium;
+  }
+
+  .product-stock-low {
+    @apply text-[hsl(var(--product-stock-low))];
+  }
+
+  .product-stock-out {
+    @apply text-[hsl(var(--product-stock-out))];
+  }
+
+  .product-gallery-thumbnail {
+    @apply border-2 border-transparent rounded-lg overflow-hidden transition-all duration-200 hover:border-[hsl(var(--product-variant-border))] cursor-pointer;
+  }
+
+  .product-gallery-thumbnail-active {
+    @apply border-[hsl(var(--product-variant-selected))] ring-2 ring-[hsl(var(--product-variant-selected))]/20;
   }
 }
