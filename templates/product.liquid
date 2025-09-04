@@ -1,0 +1,15 @@
+{% comment %}
+  Page produit modulaire avec sections séparées
+{% endcomment %}
+
+<!-- Navigation -->
+<nav class="product-nav">
+    <div class="container">
+        <a href="{{ routes.root_url }}" class="back-link">
+            ← Retour à l'accueil
+        </a>
+    </div>
+</nav>
+
+{% section 'product-main' %}
+{% section 'product-tabs' %}
